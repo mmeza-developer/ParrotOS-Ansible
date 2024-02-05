@@ -1,0 +1,8 @@
+alias ll="ls -al --color"
+alias l="ls"
+
+alias vi="vim"
+alias connect-htb="sudo openvpn --config /home/$USER/HTB/VPN/competitive_Leftr0x41r0.ovpn --daemon"
+alias connect-htb-start="sudo openvpn --config /home/$USER/HTB/VPN/starting_point_Leftr0x41r0.ovpn --daemon"
+alias connect-htb-endgame="sudo openvpn --config /home/$USER/HTB/VPN/endgames_Leftr0x41r0.ovpn --daemon"
+alias connect-htb-competitive="sudo openvpn --config /home/$USER/HTB/VPN/competitive_Leftr0x41r0.ovpn --daemon"

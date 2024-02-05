@@ -1,0 +1,33 @@
+---
+- name: Check if output directory exists
+  stat:
+    path: "{{ ansible_env.HOME }}/.bash"
+  register: output_folder
+
+- name: Creates directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.bash"
+    state: directory
+  when: output_folder.stat.exists == false
+
+- name: Read content from source file (bashrc_content)
+  slurp:
+    src: "{{ role_path }}/files/bashrc_content"
+  register: source_content
+
+- name: Append content to destination file (.bashrc)
+  copy:
+    content: "{{ source_content['content'] | b64decode }}"
+    dest:  "{{ ansible_env.HOME }}/.bashrc"
+    remote_src: yes
+
+- name: "Copy mycommands"
+  copy:
+    src: "{{ role_path }}/files/mycommands"
+    dest: "{{ ansible_env.HOME }}/.bash/mycommands"
+
+
+- name: "Copy myalias"
+  copy:
+    src: "{{ role_path }}/files/myalias"
+    dest: "{{ ansible_env.HOME }}/.bash/myalias"

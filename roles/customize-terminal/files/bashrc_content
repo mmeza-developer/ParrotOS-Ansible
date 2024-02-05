@@ -1,0 +1,11 @@
+if [ -f /home/$USER/.bash/myalias ]; then
+        source /home/$USER/.bash/myalias
+else
+        print "No alias file found\n"
+fi
+
+if [ -f /home/$USER/.bash/mycommands ]; then
+        source /home/$USER/.bash/mycommands
+else
+        print "No functions file found\n"
+fi

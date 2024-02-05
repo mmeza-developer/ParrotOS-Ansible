@@ -1,0 +1,6 @@
+---
+- import_tasks: apt-stuff.yml
+- import_tasks: kerbrute.yml
+- import_tasks: github-repos.yml
+- import_tasks: python-tools.yml
+- import_tasks: gem-tools.yml

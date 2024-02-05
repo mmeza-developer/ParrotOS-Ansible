@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+function server(){
+	if [ -z "$1" ]
+	then
+		sudo python3 -m http.server 80
+	else
+		python3 -m http.server "$1"
+	fi
+}
+
+function close_vpn(){
+
+    process=$(ps aux | grep openvpn| awk '{print $2}' | head -n 1);sudo kill $process;echo 'Process has been closed';
+
+}
+
+function connect-vpn(){
+    if [ -z "$1" ]
+    then
+        echo "Debe ingresar un archivo OVPN"
+    else
+        sudo openvpn --config "$1" --daemon
+    fi    
+}
+
