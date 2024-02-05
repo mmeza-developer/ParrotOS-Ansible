@@ -8,8 +8,8 @@
 * ansible-galaxy install -r requirements.yml
 * Make sure we have a sudo token (sudo whoami)
 * ansible-playbook main.yml
-
-    Always check the debian version in file roles->docker->tasks->docker.yml line 21
+> **Warning**: 
+> Always check the debian version in file roles->docker->tasks->docker.yml line 21
 
 Install Requeriments
 
